@@ -19,17 +19,21 @@ export default function Recipe() {
     }
 
     return (
-        <div className="recipeContainer">
-            <img src={recipe.strMealThumb}></img>
-            <h1>{recipe.strMeal}</h1>
-            <h2>Type: {recipe.strArea}</h2>
-            <h3> {recipe.strCategory} </h3>
-            <p> {recipe.strInstructions} </p>
-            <ul>
-                {ingredients.map((ingredient) => (
-                    <li>{ingredient}</li>
-                ))}
-            </ul>
+        <div className="py-30 flex justify-center ">
+            <div className="max-w-xl rounded overflow-hidden shadow-lg">
+                <img className="w-full" src={recipe.strMealThumb}></img>
+                <h1 className="font-bold text-xl mb-2 pb-1">
+                    {recipe.strMeal}
+                </h1>
+                <h3 className="font-bold">Category: {recipe.strCategory} </h3>
+                <h2 className="font-bold pb-3">Type: {recipe.strArea}</h2>
+                <ul>
+                    {ingredients.map((ingredient) => (
+                        <li>{ingredient}</li>
+                    ))}
+                </ul>
+                <p> {recipe.strInstructions} </p>
+            </div>
         </div>
     );
 }
