@@ -28,11 +28,13 @@ export default function Recipe() {
                 <h3 className="font-bold">Category: {recipe.strCategory} </h3>
                 <h2 className="font-bold pb-3">Type: {recipe.strArea}</h2>
                 <ul>
-                    {ingredients.map((ingredient) => (
-                        <li>{ingredient}</li>
-                    ))}
+                    {ingredients.map((ingredient) => {
+                        if (ingredient !== " - " && ingredient !== " -  ") {
+                            return <li>{ingredient}</li>;
+                        }
+                    })}
                 </ul>
-                <p> {recipe.strInstructions} </p>
+                <p className="pt-5"> {recipe.strInstructions} </p>
             </div>
         </div>
     );
