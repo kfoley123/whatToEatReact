@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Recipe from "../Recipe/Recipe.js";
 
-export default function Header() {
+export default function Main() {
     const [recipe, setRecipe] = useState({});
     const [buttonPress, setButtonPress] = useState(false);
 
