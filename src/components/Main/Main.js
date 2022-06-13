@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Recipe from "../Recipe/Recipe.js";
+import RecipeCard from "../RecipeCard/RecipeCard.js";
 
 export default function Main() {
     const [recipe, setRecipe] = useState({});
@@ -30,7 +30,7 @@ export default function Main() {
                     Gimme something to eat
                 </button>
             </div>
-            <Recipe recipe={recipe} />
+            <RecipeCard recipe={recipe} />
         </div>
     );
 }

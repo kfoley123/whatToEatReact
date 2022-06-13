@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Recipe(props) {
+export default function RecipeCard(props) {
     let ingredients = [];
 
     for (let i = 1; i < 20; i++) {
