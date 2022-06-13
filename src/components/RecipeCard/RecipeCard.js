@@ -38,7 +38,7 @@ export default function RecipeCard(props) {
                                 ) {
                                     return <li key={i}>{ingredient}</li>;
                                 }
-                                return;
+                                return <></>;
                             })}
                         </ul>
                         <p className="pt-5"> {props.recipe.strInstructions} </p>
