@@ -10,6 +10,7 @@ export default function RecipeCard(props) {
             props.recipe[`strMeasure${i}`];
         ingredients.push(comboString);
     }
+
     if (Object.keys(props.recipe).length !== 0) {
         return (
             <div className="py-30 flex justify-center ">
@@ -17,6 +18,7 @@ export default function RecipeCard(props) {
                     <img
                         className="w-full"
                         src={props.recipe.strMealThumb}
+                        alt={props.recipe.strMeal}
                     ></img>
                     <h1 className="font-bold text-xl px-5 pt-5">
                         {props.recipe.strMeal}
@@ -36,6 +38,7 @@ export default function RecipeCard(props) {
                                 ) {
                                     return <li key={i}>{ingredient}</li>;
                                 }
+                                return;
                             })}
                         </ul>
                         <p className="pt-5"> {props.recipe.strInstructions} </p>
