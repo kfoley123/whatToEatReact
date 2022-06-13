@@ -1,41 +1,47 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-export default function Recipe() {
-    const [recipe, setRecipe] = useState({});
+export default function Recipe(props) {
     let ingredients = [];
-
-    useEffect(() => {
-        fetch("https://www.themealdb.com/api/json/v1/1/random.php")
-            .then((response) => response.json())
-            .then((response) => {
-                setRecipe(response.meals[0]);
-            });
-    }, []);
 
     for (let i = 1; i < 20; i++) {
         let comboString =
-            recipe[`strIngredient${i}`] + " - " + recipe[`strMeasure${i}`];
+            props.recipe[`strIngredient${i}`] +
+            " - " +
+            props.recipe[`strMeasure${i}`];
         ingredients.push(comboString);
     }
-
-    return (
-        <div className="py-30 flex justify-center ">
-            <div className="max-w-xl rounded overflow-hidden shadow-lg">
-                <img className="w-full" src={recipe.strMealThumb}></img>
-                <h1 className="font-bold text-xl mb-2 pb-1">
-                    {recipe.strMeal}
-                </h1>
-                <h3 className="font-bold">Category: {recipe.strCategory} </h3>
-                <h2 className="font-bold pb-3">Type: {recipe.strArea}</h2>
-                <ul>
-                    {ingredients.map((ingredient) => {
-                        if (ingredient !== " - " && ingredient !== " -  ") {
-                            return <li>{ingredient}</li>;
-                        }
-                    })}
-                </ul>
-                <p className="pt-5"> {recipe.strInstructions} </p>
+    if (Object.keys(props.recipe).length !== 0) {
+        return (
+            <div className="py-30 flex justify-center ">
+                <div className="max-w-xl rounded overflow-hidden shadow-lg">
+                    <img
+                        className="w-full"
+                        src={props.recipe.strMealThumb}
+                    ></img>
+                    <h1 className="font-bold text-xl px-5 pt-5">
+                        {props.recipe.strMeal}
+                    </h1>
+                    <div className="p-6">
+                        <h3 className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-5">
+                            Category: {props.recipe.strCategory}{" "}
+                        </h3>
+                        <h2 className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                            Type: {props.recipe.strArea}
+                        </h2>
+                        <ul>
+                            {ingredients.map((ingredient, i) => {
+                                if (
+                                    ingredient !== " - " &&
+                                    ingredient !== " -  "
+                                ) {
+                                    return <li key={i}>{ingredient}</li>;
+                                }
+                            })}
+                        </ul>
+                        <p className="pt-5"> {props.recipe.strInstructions} </p>
+                    </div>
+                </div>
             </div>
-        </div>
-    );
+        );
+    } else return <></>;
 }
