@@ -13,7 +13,7 @@ export default function RecipeCard(props) {
 
     if (Object.keys(props.recipe).length !== 0) {
         return (
-            <div className="py-30 flex justify-center ">
+            <div className="py-30 flex justify-center mb-10 ">
                 <div className="max-w-xl rounded overflow-hidden shadow-lg">
                     <img
                         className="w-full"
