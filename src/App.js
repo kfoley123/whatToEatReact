@@ -1,11 +1,9 @@
-import Header from "./components/Header/Header";
-import Recipe from "./components/Recipe/Recipe";
+import Main from "./components/Main/Main";
 
 function App() {
     return (
         <>
-            <Header />
-            <Recipe />
+            <Main />
         </>
     );
 }
